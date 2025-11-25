@@ -1,0 +1,268 @@
+.wc-dpg-wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.wc-dpg-wrapper h1 {
+	color: #333;
+	margin-bottom: 20px;
+	font-size: 32px;
+}
+
+.wc-dpg-tabs {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 30px;
+	border-bottom: 2px solid #f0f0f0;
+}
+
+.tab-button {
+	padding: 12px 20px;
+	background: none;
+	border: none;
+	border-bottom: 3px solid transparent;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 600;
+	color: #666;
+	transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+	color: #0073aa;
+}
+
+.tab-button.active {
+	color: #0073aa;
+	border-bottom-color: #0073aa;
+}
+
+.wc-dpg-content {
+	margin-bottom: 20px;
+}
+
+.tab-content {
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+.wc-dpg-container {
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	gap: 30px;
+	margin-bottom: 30px;
+}
+
+.wc-dpg-form-card,
+.wc-dpg-info-card {
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	border-radius: 6px;
+	padding: 30px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.wc-dpg-form-card h2,
+.wc-dpg-info-card h3 {
+	margin-top: 0;
+	margin-bottom: 20px;
+	color: #333;
+	font-size: 20px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #f0f0f0;
+}
+
+.wc-dpg-form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 8px;
+	font-weight: 600;
+	color: #333;
+	font-size: 14px;
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group select {
+	padding: 10px 12px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-size: 14px;
+	font-family: inherit;
+	transition: border-color 0.2s;
+}
+
+.form-group input[type="number"]:focus,
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+	outline: none;
+	border-color: #0073aa;
+	box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.1);
+}
+
+.form-group small {
+	display: block;
+	margin-top: 5px;
+	font-size: 12px;
+	color: #666;
+}
+
+.form-group.checkbox {
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+}
+
+.form-group.checkbox input[type="checkbox"] {
+	width: 18px;
+	height: 18px;
+	margin: 0;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.form-group.checkbox label {
+	margin: 0;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+#wc-dpg-form .button-primary {
+	width: 100%;
+	padding: 12px 20px;
+	font-size: 16px;
+	font-weight: 600;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	background-color: #0073aa;
+	color: #fff;
+	transition: background-color 0.2s;
+}
+
+#wc-dpg-form .button-primary:hover {
+	background-color: #005a87;
+}
+
+#wc-dpg-form .button-primary:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	background-color: #999;
+}
+
+.wc-dpg-progress {
+	margin: 20px 0;
+	padding: 20px;
+	background: #f9f9f9;
+	border: 1px solid #e5e5e5;
+	border-radius: 4px;
+}
+
+.progress-bar {
+	width: 100%;
+	height: 24px;
+	background: #e5e5e5;
+	border-radius: 4px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.progress-fill {
+	height: 100%;
+	width: 0;
+	background: linear-gradient(90deg, #0073aa, #005a87);
+	transition: width 0.3s ease;
+}
+
+.progress-text {
+	font-size: 14px;
+	color: #666;
+	margin: 0;
+	text-align: center;
+}
+
+.wc-dpg-result {
+	margin: 20px 0;
+	padding: 20px;
+	border-radius: 4px;
+	border-left: 4px solid;
+}
+
+.wc-dpg-result.success {
+	background-color: #f0f6fc;
+	border-left-color: #72aee6;
+}
+
+.wc-dpg-result.success p {
+	color: #1d3557;
+	margin: 0;
+	font-weight: 500;
+}
+
+.wc-dpg-result.error {
+	background-color: #fee;
+	border-left-color: #dc3545;
+}
+
+.wc-dpg-result.error p {
+	color: #721c24;
+	margin: 0;
+	font-weight: 500;
+}
+
+.wc-dpg-result ul {
+	margin: 10px 0 0 20px;
+	padding: 0;
+	font-size: 14px;
+}
+
+.wc-dpg-result li {
+	margin: 5px 0;
+	list-style: disc;
+}
+
+.wc-dpg-info-card ul {
+	margin: 0;
+	padding-left: 20px;
+	list-style: disc;
+}
+
+.wc-dpg-info-card li {
+	margin: 8px 0;
+	color: #666;
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+@media (max-width: 782px) {
+	.wc-dpg-container {
+		grid-template-columns: 1fr;
+	}
+
+	.wc-dpg-wrapper {
+		padding: 10px;
+	}
+
+	.wc-dpg-form-card,
+	.wc-dpg-info-card {
+		padding: 20px;
+	}
+
+	.wc-dpg-wrapper h1 {
+		font-size: 24px;
+	}
+}
