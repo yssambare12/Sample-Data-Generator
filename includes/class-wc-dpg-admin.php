@@ -15,8 +15,8 @@ class WC_DPG_Admin {
 
 	public function add_admin_menu() {
 		add_menu_page(
-			esc_html__( 'Dummy Content', 'wc-dummy-product-generator' ),
-			esc_html__( 'Dummy Content', 'wc-dummy-product-generator' ),
+			esc_html__( 'Sample Data', 'sample-data-generator' ),
+			esc_html__( 'Sample Data', 'sample-data-generator' ),
 			'manage_woocommerce',
 			'wc-dummy-content',
 			array( $this, 'render_settings_page' ),
@@ -58,14 +58,14 @@ class WC_DPG_Admin {
 	public function render_settings_page() {
 		?>
 		<div class="wrap wc-dpg-wrapper">
-			<h1><?php esc_html_e( 'Dummy Content Generator', 'wc-dummy-product-generator' ); ?></h1>
+			<h1><?php esc_html_e( 'Sample Data Generator', 'sample-data-generator' ); ?></h1>
 
 			<div class="wc-dpg-tabs">
 				<button class="tab-button active" data-tab="products">
-					<?php esc_html_e( 'Generate Products', 'wc-dummy-product-generator' ); ?>
+					<?php esc_html_e( 'Generate Products', 'sample-data-generator' ); ?>
 				</button>
 				<button class="tab-button" data-tab="posts">
-					<?php esc_html_e( 'Generate Posts', 'wc-dummy-product-generator' ); ?>
+					<?php esc_html_e( 'Generate Posts', 'sample-data-generator' ); ?>
 				</button>
 			</div>
 
@@ -73,12 +73,12 @@ class WC_DPG_Admin {
 				<div id="products-tab" class="tab-content active">
 					<div class="wc-dpg-container">
 						<div class="wc-dpg-form-card">
-							<h2><?php esc_html_e( 'WooCommerce Products', 'wc-dummy-product-generator' ); ?></h2>
+							<h2><?php esc_html_e( 'WooCommerce Products', 'sample-data-generator' ); ?></h2>
 
 							<form id="wc-dpg-products-form" class="wc-dpg-form">
 								<div class="form-group">
 									<label for="product-count">
-										<?php esc_html_e( 'Number of Products', 'wc-dummy-product-generator' ); ?>
+										<?php esc_html_e( 'Number of Products', 'sample-data-generator' ); ?>
 									</label>
 									<input
 										type="number"
@@ -89,33 +89,33 @@ class WC_DPG_Admin {
 										max="100"
 										required
 									>
-									<small><?php esc_html_e( 'Create between 1 and 100 products', 'wc-dummy-product-generator' ); ?></small>
+									<small><?php esc_html_e( 'Create between 1 and 100 products', 'sample-data-generator' ); ?></small>
 								</div>
 
 								<div class="form-group">
 									<label for="product-type">
-										<?php esc_html_e( 'Product Type', 'wc-dummy-product-generator' ); ?>
+										<?php esc_html_e( 'Product Type', 'sample-data-generator' ); ?>
 									</label>
 									<select id="product-type" name="product_type" required>
-										<option value="simple"><?php esc_html_e( 'Simple Products', 'wc-dummy-product-generator' ); ?></option>
-										<option value="variable"><?php esc_html_e( 'Variable Products', 'wc-dummy-product-generator' ); ?></option>
-										<option value="mixed"><?php esc_html_e( 'Mixed (50/50)', 'wc-dummy-product-generator' ); ?></option>
+										<option value="simple"><?php esc_html_e( 'Simple Products', 'sample-data-generator' ); ?></option>
+										<option value="variable"><?php esc_html_e( 'Variable Products', 'sample-data-generator' ); ?></option>
+										<option value="mixed"><?php esc_html_e( 'Mixed (50/50)', 'sample-data-generator' ); ?></option>
 									</select>
 								</div>
 
 								<div class="form-group">
 									<label for="product-category">
-										<?php esc_html_e( 'Category', 'wc-dummy-product-generator' ); ?>
+										<?php esc_html_e( 'Category', 'sample-data-generator' ); ?>
 									</label>
 									<select id="product-category" name="product_category">
-										<option value=""><?php esc_html_e( 'Random Category', 'wc-dummy-product-generator' ); ?></option>
+										<option value=""><?php esc_html_e( 'Random Category', 'sample-data-generator' ); ?></option>
 										<?php $this->render_product_category_options(); ?>
 									</select>
 								</div>
 
 								<div class="form-group">
 									<label for="base-price">
-										<?php esc_html_e( 'Base Price (USD)', 'wc-dummy-product-generator' ); ?>
+										<?php esc_html_e( 'Base Price (USD)', 'sample-data-generator' ); ?>
 									</label>
 									<input
 										type="number"
@@ -126,7 +126,7 @@ class WC_DPG_Admin {
 										min="1"
 										required
 									>
-									<small><?php esc_html_e( 'Product prices vary around this base price', 'wc-dummy-product-generator' ); ?></small>
+									<small><?php esc_html_e( 'Product prices vary around this base price', 'sample-data-generator' ); ?></small>
 								</div>
 
 								<div class="form-group checkbox">
@@ -138,13 +138,13 @@ class WC_DPG_Admin {
 										checked
 									>
 									<label for="add-product-images">
-										<?php esc_html_e( 'Add Random Product Images', 'wc-dummy-product-generator' ); ?>
+										<?php esc_html_e( 'Add Random Product Images', 'sample-data-generator' ); ?>
 									</label>
 								</div>
 
 								<div class="form-group">
 									<button type="submit" class="button button-primary button-large" id="generate-products-btn">
-										<?php esc_html_e( 'Generate Products', 'wc-dummy-product-generator' ); ?>
+										<?php esc_html_e( 'Generate Products', 'sample-data-generator' ); ?>
 									</button>
 								</div>
 							</form>
@@ -160,13 +160,13 @@ class WC_DPG_Admin {
 						</div>
 
 						<div class="wc-dpg-info-card">
-							<h3><?php esc_html_e( 'Product Info', 'wc-dummy-product-generator' ); ?></h3>
+							<h3><?php esc_html_e( 'Product Info', 'sample-data-generator' ); ?></h3>
 							<ul>
-								<li><?php esc_html_e( 'Simple or variable products', 'wc-dummy-product-generator' ); ?></li>
-								<li><?php esc_html_e( 'Customizable pricing', 'wc-dummy-product-generator' ); ?></li>
-								<li><?php esc_html_e( 'Random product images', 'wc-dummy-product-generator' ); ?></li>
-								<li><?php esc_html_e( 'Realistic product data', 'wc-dummy-product-generator' ); ?></li>
-								<li><?php esc_html_e( 'Perfect for testing', 'wc-dummy-product-generator' ); ?></li>
+								<li><?php esc_html_e( 'Simple or variable products', 'sample-data-generator' ); ?></li>
+								<li><?php esc_html_e( 'Customizable pricing', 'sample-data-generator' ); ?></li>
+								<li><?php esc_html_e( 'Random product images', 'sample-data-generator' ); ?></li>
+								<li><?php esc_html_e( 'Realistic product data', 'sample-data-generator' ); ?></li>
+								<li><?php esc_html_e( 'Perfect for testing', 'sample-data-generator' ); ?></li>
 							</ul>
 						</div>
 					</div>
@@ -175,12 +175,12 @@ class WC_DPG_Admin {
 				<div id="posts-tab" class="tab-content" style="display: none;">
 					<div class="wc-dpg-container">
 						<div class="wc-dpg-form-card">
-							<h2><?php esc_html_e( 'WordPress Posts', 'wc-dummy-product-generator' ); ?></h2>
+							<h2><?php esc_html_e( 'WordPress Posts', 'sample-data-generator' ); ?></h2>
 
 							<form id="wc-dpg-posts-form" class="wc-dpg-form">
 								<div class="form-group">
 									<label for="post-count">
-										<?php esc_html_e( 'Number of Posts', 'wc-dummy-product-generator' ); ?>
+										<?php esc_html_e( 'Number of Posts', 'sample-data-generator' ); ?>
 									</label>
 									<input
 										type="number"
@@ -191,15 +191,15 @@ class WC_DPG_Admin {
 										max="100"
 										required
 									>
-									<small><?php esc_html_e( 'Create between 1 and 100 posts', 'wc-dummy-product-generator' ); ?></small>
+									<small><?php esc_html_e( 'Create between 1 and 100 posts', 'sample-data-generator' ); ?></small>
 								</div>
 
 								<div class="form-group">
 									<label for="post-category">
-										<?php esc_html_e( 'Category', 'wc-dummy-product-generator' ); ?>
+										<?php esc_html_e( 'Category', 'sample-data-generator' ); ?>
 									</label>
 									<select id="post-category" name="post_category">
-										<option value=""><?php esc_html_e( 'Random Category', 'wc-dummy-product-generator' ); ?></option>
+										<option value=""><?php esc_html_e( 'Random Category', 'sample-data-generator' ); ?></option>
 										<?php $this->render_post_category_options(); ?>
 									</select>
 								</div>
@@ -213,13 +213,13 @@ class WC_DPG_Admin {
 										checked
 									>
 									<label for="add-post-images">
-										<?php esc_html_e( 'Add Featured Images', 'wc-dummy-product-generator' ); ?>
+										<?php esc_html_e( 'Add Featured Images', 'sample-data-generator' ); ?>
 									</label>
 								</div>
 
 								<div class="form-group">
 									<button type="submit" class="button button-primary button-large" id="generate-posts-btn">
-										<?php esc_html_e( 'Generate Posts', 'wc-dummy-product-generator' ); ?>
+										<?php esc_html_e( 'Generate Posts', 'sample-data-generator' ); ?>
 									</button>
 								</div>
 							</form>
@@ -235,13 +235,13 @@ class WC_DPG_Admin {
 						</div>
 
 						<div class="wc-dpg-info-card">
-							<h3><?php esc_html_e( 'Post Info', 'wc-dummy-product-generator' ); ?></h3>
+							<h3><?php esc_html_e( 'Post Info', 'sample-data-generator' ); ?></h3>
 							<ul>
-								<li><?php esc_html_e( 'Realistic blog posts', 'wc-dummy-product-generator' ); ?></li>
-								<li><?php esc_html_e( 'Random categories', 'wc-dummy-product-generator' ); ?></li>
-								<li><?php esc_html_e( 'Featured images', 'wc-dummy-product-generator' ); ?></li>
-								<li><?php esc_html_e( 'Quality content', 'wc-dummy-product-generator' ); ?></li>
-								<li><?php esc_html_e( 'Ready to publish', 'wc-dummy-product-generator' ); ?></li>
+								<li><?php esc_html_e( 'Realistic blog posts', 'sample-data-generator' ); ?></li>
+								<li><?php esc_html_e( 'Random categories', 'sample-data-generator' ); ?></li>
+								<li><?php esc_html_e( 'Featured images', 'sample-data-generator' ); ?></li>
+								<li><?php esc_html_e( 'Quality content', 'sample-data-generator' ); ?></li>
+								<li><?php esc_html_e( 'Ready to publish', 'sample-data-generator' ); ?></li>
 							</ul>
 						</div>
 					</div>
@@ -288,7 +288,7 @@ class WC_DPG_Admin {
 		check_ajax_referer( 'wc_dpg_generate_nonce', 'nonce' );
 
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_send_json_error( array( 'message' => esc_html__( 'Permission denied', 'wc-dummy-product-generator' ) ) );
+			wp_send_json_error( array( 'message' => esc_html__( 'Permission denied', 'sample-data-generator' ) ) );
 		}
 
 		$product_count    = intval( $_POST['product_count'] ?? 5 );
@@ -319,7 +319,7 @@ class WC_DPG_Admin {
 		check_ajax_referer( 'wc_dpg_generate_nonce', 'nonce' );
 
 		if ( ! current_user_can( 'publish_posts' ) ) {
-			wp_send_json_error( array( 'message' => esc_html__( 'Permission denied', 'wc-dummy-product-generator' ) ) );
+			wp_send_json_error( array( 'message' => esc_html__( 'Permission denied', 'sample-data-generator' ) ) );
 		}
 
 		$post_count    = intval( $_POST['post_count'] ?? 5 );

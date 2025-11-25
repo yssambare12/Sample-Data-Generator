@@ -58,7 +58,7 @@ class WC_DPG_Post_Generator {
 		if ( empty( $created_posts ) ) {
 			return array(
 				'success' => false,
-				'message' => esc_html__( 'Failed to create posts.', 'wc-dummy-product-generator' ),
+				'message' => esc_html__( 'Failed to create posts.', 'sample-data-generator' ),
 				'errors'  => $errors,
 			);
 		}
@@ -66,7 +66,7 @@ class WC_DPG_Post_Generator {
 		return array(
 			'success' => true,
 			'message' => sprintf(
-				esc_html__( 'Successfully created %d post(s)!', 'wc-dummy-product-generator' ),
+				esc_html__( 'Successfully created %d post(s)!', 'sample-data-generator' ),
 				count( $created_posts )
 			),
 			'posts'   => $created_posts,

@@ -1,18 +1,18 @@
 <?php
 /**
- * Plugin Name: WC Dummy Product & Post Generator
- * Description: Generate dummy WooCommerce products and WordPress posts for testing
+ * Plugin Name: Sample Data Generator
+ * Description: Generate sample WooCommerce products and WordPress posts for testing and development
  * Version: 1.0.0
  * Author: Yogesh Sambare
  * Author URI: https://example.com
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: wc-dummy-product-generator
+ * Text Domain: sample-data-generator
  * Domain Path: /languages
  * Requires: WooCommerce
  * Requires PHP: 7.4
  *
- * @package WC_Dummy_Product_Generator
+ * @package Sample_Data_Generator
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

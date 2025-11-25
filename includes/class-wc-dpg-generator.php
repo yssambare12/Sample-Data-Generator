@@ -73,7 +73,7 @@ class WC_DPG_Generator {
 		if ( empty( $created_products ) ) {
 			return array(
 				'success' => false,
-				'message' => esc_html__( 'Failed to create products.', 'wc-dummy-product-generator' ),
+				'message' => esc_html__( 'Failed to create products.', 'sample-data-generator' ),
 				'errors'  => $errors,
 			);
 		}
@@ -81,7 +81,7 @@ class WC_DPG_Generator {
 		return array(
 			'success'  => true,
 			'message'  => sprintf(
-				esc_html__( 'Successfully created %d product(s)!', 'wc-dummy-product-generator' ),
+				esc_html__( 'Successfully created %d product(s)!', 'sample-data-generator' ),
 				count( $created_products )
 			),
 			'products' => $created_products,

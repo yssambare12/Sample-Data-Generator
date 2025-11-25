@@ -24,7 +24,7 @@ class WC_Dummy_Product_Generator {
 	public static function woocommerce_missing_notice() {
 		?>
 		<div class="notice notice-error is-dismissible">
-			<p><?php esc_html_e( 'WC Dummy Product & Post Generator requires WooCommerce to be installed and active.', 'wc-dummy-product-generator' ); ?></p>
+			<p><?php esc_html_e( 'Sample Data Generator requires WooCommerce to be installed and active.', 'sample-data-generator' ); ?></p>
 		</div>
 		<?php
 	}
