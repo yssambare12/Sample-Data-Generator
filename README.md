@@ -34,7 +34,7 @@ A simple WordPress plugin to generate dummy WooCommerce products for testing and
      - Mixed - 50/50 split of simple and variable
    - **Category**: Select a category or leave blank for random category
    - **Base Price**: The starting price (products will have ±30% variance)
-   - **Add Random Product Images**: Check to add placeholder images
+   - **Add Random Product Images*: Check to add placeholder images
 3. Click **Generate Products**
 4. Monitor the progress bar
 5. Once complete, view the links to your newly created products
@@ -87,3 +87,4 @@ For issues or questions, check:
 ## License
 
 GPL v2 or later
+
