@@ -20,12 +20,12 @@
 	}
 
 	function initProductsForm() {
-		const form = $('#wc-dpg-products-form');
+		const form = $('#smdg-products-form');
 		const submitBtn = $('#generate-products-btn');
-		const progressDiv = $('#wc-dpg-products-progress');
+		const progressDiv = $('#smdg-products-progress');
 		const progressFill = progressDiv.find('.progress-fill');
 		const progressText = progressDiv.find('.progress-text');
-		const resultDiv = $('#wc-dpg-products-result');
+		const resultDiv = $('#smdg-products-result');
 
 		form.on('submit', function (e) {
 			e.preventDefault();
@@ -48,12 +48,12 @@
 			progressText.text('Generating products...');
 
 			$.ajax({
-				url: wcDpgSettings.ajaxUrl,
+				url: smdgSettings.ajaxUrl,
 				type: 'POST',
 				dataType: 'json',
 				data: {
-					action: 'wc_dpg_generate_products',
-					nonce: wcDpgSettings.nonce,
+					action: 'smdg_generate_products',
+					nonce: smdgSettings.nonce,
 					product_count: productCount,
 					product_type: productType,
 					product_category: productCategory,
@@ -90,12 +90,12 @@
 	}
 
 	function initPostsForm() {
-		const form = $('#wc-dpg-posts-form');
+		const form = $('#smdg-posts-form');
 		const submitBtn = $('#generate-posts-btn');
-		const progressDiv = $('#wc-dpg-posts-progress');
+		const progressDiv = $('#smdg-posts-progress');
 		const progressFill = progressDiv.find('.progress-fill');
 		const progressText = progressDiv.find('.progress-text');
-		const resultDiv = $('#wc-dpg-posts-result');
+		const resultDiv = $('#smdg-posts-result');
 
 		form.on('submit', function (e) {
 			e.preventDefault();
@@ -116,12 +116,12 @@
 			progressText.text('Generating posts...');
 
 			$.ajax({
-				url: wcDpgSettings.ajaxUrl,
+				url: smdgSettings.ajaxUrl,
 				type: 'POST',
 				dataType: 'json',
 				data: {
-					action: 'wc_dpg_generate_posts',
-					nonce: wcDpgSettings.nonce,
+					action: 'smdg_generate_posts',
+					nonce: smdgSettings.nonce,
 					post_count: postCount,
 					post_category: postCategory,
 					add_images: addImages,

@@ -4,78 +4,88 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class WC_DPG_Admin {
+class SMDG_Admin {
 
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
-		add_action( 'wp_ajax_wc_dpg_generate_products', array( $this, 'generate_products_ajax' ) );
-		add_action( 'wp_ajax_wc_dpg_generate_posts', array( $this, 'generate_posts_ajax' ) );
+		add_action( 'wp_ajax_smdg_generate_products', array( $this, 'generate_products_ajax' ) );
+		add_action( 'wp_ajax_smdg_generate_posts', array( $this, 'generate_posts_ajax' ) );
 	}
 
 	public function add_admin_menu() {
 		add_menu_page(
 			esc_html__( 'Sample Data', 'sample-data-generator' ),
 			esc_html__( 'Sample Data', 'sample-data-generator' ),
-			'manage_woocommerce',
-			'wc-dummy-content',
+			'publish_posts',
+			'smdg-content',
 			array( $this, 'render_settings_page' ),
 			'dashicons-admin-generic',
 			56
 		);
 	}
 
+	private function is_woocommerce_active() {
+		return class_exists( 'WooCommerce' ) || function_exists( 'WC' );
+	}
+
 	public function enqueue_admin_scripts( $hook ) {
-		if ( 'toplevel_page_wc-dummy-content' !== $hook ) {
+		if ( 'toplevel_page_smdg-content' !== $hook ) {
 			return;
 		}
 
 		wp_enqueue_style(
-			'wc-dpg-admin-style',
-			WC_DPG_PLUGIN_URL . 'admin/css/admin.css',
+			'smdg-admin-style',
+			SMDG_PLUGIN_URL . 'admin/css/admin.css',
 			array(),
-			WC_DPG_VERSION
+			SMDG_VERSION
 		);
 
 		wp_enqueue_script(
-			'wc-dpg-admin-script',
-			WC_DPG_PLUGIN_URL . 'admin/js/admin.js',
+			'smdg-admin-script',
+			SMDG_PLUGIN_URL . 'admin/js/admin.js',
 			array( 'jquery' ),
-			WC_DPG_VERSION,
+			SMDG_VERSION,
 			true
 		);
 
 		wp_localize_script(
-			'wc-dpg-admin-script',
-			'wcDpgSettings',
+			'smdg-admin-script',
+			'smdgSettings',
 			array(
 				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'nonce'   => wp_create_nonce( 'wc_dpg_generate_nonce' ),
+				'nonce'   => wp_create_nonce( 'smdg_generate_nonce' ),
 			)
 		);
 	}
 
 	public function render_settings_page() {
+		$is_wc_active = $this->is_woocommerce_active();
+		$default_tab_products = $is_wc_active ? 'active' : '';
+		$default_tab_posts = $is_wc_active ? '' : 'active';
 		?>
-		<div class="wrap wc-dpg-wrapper">
+		<div class="wrap smdg-wrapper">
 			<h1><?php esc_html_e( 'Sample Data Generator', 'sample-data-generator' ); ?></h1>
 
-			<div class="wc-dpg-tabs">
-				<button class="tab-button active" data-tab="products">
+			<div class="smdg-tabs">
+				<?php if ( $is_wc_active ) : ?>
+				<button class="tab-button <?php echo esc_attr( $default_tab_products ); ?>" data-tab="products">
 					<?php esc_html_e( 'Generate Products', 'sample-data-generator' ); ?>
 				</button>
-				<button class="tab-button" data-tab="posts">
+				<?php endif; ?>
+				<button class="tab-button <?php echo esc_attr( $default_tab_posts ); ?>" data-tab="posts">
 					<?php esc_html_e( 'Generate Posts', 'sample-data-generator' ); ?>
 				</button>
 			</div>
 
-			<div class="wc-dpg-content">
-				<div id="products-tab" class="tab-content active">
-					<div class="wc-dpg-container">
-						<div class="wc-dpg-form-card">
+			<div class="smdg-content">
+				<?php if ( $is_wc_active ) : ?>
+				<div id="products-tab" class="tab-content <?php echo esc_attr( $default_tab_products ); ?>">
+					<div class="smdg-container">
+						<div class="smdg-form-card">
 							<h2><?php esc_html_e( 'WooCommerce Products', 'sample-data-generator' ); ?></h2>
 
-							<form id="wc-dpg-products-form" class="wc-dpg-form">
+							<form id="smdg-products-form" class="smdg-form">
 								<div class="form-group">
 									<label for="product-count">
 										<?php esc_html_e( 'Number of Products', 'sample-data-generator' ); ?>
@@ -149,17 +159,17 @@ class WC_DPG_Admin {
 								</div>
 							</form>
 
-							<div id="wc-dpg-products-progress" class="wc-dpg-progress" style="display: none;">
+							<div id="smdg-products-progress" class="smdg-progress" style="display: none;">
 								<div class="progress-bar">
 									<div class="progress-fill"></div>
 								</div>
 								<p class="progress-text"></p>
 							</div>
 
-							<div id="wc-dpg-products-result" class="wc-dpg-result" style="display: none;"></div>
+							<div id="smdg-products-result" class="smdg-result" style="display: none;"></div>
 						</div>
 
-						<div class="wc-dpg-info-card">
+						<div class="smdg-info-card">
 							<h3><?php esc_html_e( 'Product Info', 'sample-data-generator' ); ?></h3>
 							<ul>
 								<li><?php esc_html_e( 'Simple or variable products', 'sample-data-generator' ); ?></li>
@@ -171,13 +181,14 @@ class WC_DPG_Admin {
 						</div>
 					</div>
 				</div>
+				<?php endif; ?>
 
-				<div id="posts-tab" class="tab-content" style="display: none;">
-					<div class="wc-dpg-container">
-						<div class="wc-dpg-form-card">
+				<div id="posts-tab" class="tab-content <?php echo esc_attr( $default_tab_posts ); ?>" style="<?php echo $is_wc_active ? 'display: none;' : ''; ?>">
+					<div class="smdg-container">
+						<div class="smdg-form-card">
 							<h2><?php esc_html_e( 'WordPress Posts', 'sample-data-generator' ); ?></h2>
 
-							<form id="wc-dpg-posts-form" class="wc-dpg-form">
+							<form id="smdg-posts-form" class="smdg-form">
 								<div class="form-group">
 									<label for="post-count">
 										<?php esc_html_e( 'Number of Posts', 'sample-data-generator' ); ?>
@@ -224,17 +235,17 @@ class WC_DPG_Admin {
 								</div>
 							</form>
 
-							<div id="wc-dpg-posts-progress" class="wc-dpg-progress" style="display: none;">
+							<div id="smdg-posts-progress" class="smdg-progress" style="display: none;">
 								<div class="progress-bar">
 									<div class="progress-fill"></div>
 								</div>
 								<p class="progress-text"></p>
 							</div>
 
-							<div id="wc-dpg-posts-result" class="wc-dpg-result" style="display: none;"></div>
+							<div id="smdg-posts-result" class="smdg-result" style="display: none;"></div>
 						</div>
 
-						<div class="wc-dpg-info-card">
+						<div class="smdg-info-card">
 							<h3><?php esc_html_e( 'Post Info', 'sample-data-generator' ); ?></h3>
 							<ul>
 								<li><?php esc_html_e( 'Realistic blog posts', 'sample-data-generator' ); ?></li>
@@ -285,10 +296,14 @@ class WC_DPG_Admin {
 	}
 
 	public function generate_products_ajax() {
-		check_ajax_referer( 'wc_dpg_generate_nonce', 'nonce' );
+		check_ajax_referer( 'smdg_generate_nonce', 'nonce' );
 
-		if ( ! current_user_can( 'manage_woocommerce' ) ) {
+		if ( ! current_user_can( 'publish_posts' ) ) {
 			wp_send_json_error( array( 'message' => esc_html__( 'Permission denied', 'sample-data-generator' ) ) );
+		}
+
+		if ( ! $this->is_woocommerce_active() ) {
+			wp_send_json_error( array( 'message' => esc_html__( 'WooCommerce is required to generate products.', 'sample-data-generator' ) ) );
 		}
 
 		$product_count    = intval( $_POST['product_count'] ?? 5 );
@@ -299,7 +314,7 @@ class WC_DPG_Admin {
 
 		$product_count = min( max( $product_count, 1 ), 100 );
 
-		$generator = new WC_DPG_Generator();
+		$generator = new SMDG_Product_Generator();
 		$result    = $generator->generate_products(
 			$product_count,
 			$product_type,
@@ -316,7 +331,7 @@ class WC_DPG_Admin {
 	}
 
 	public function generate_posts_ajax() {
-		check_ajax_referer( 'wc_dpg_generate_nonce', 'nonce' );
+		check_ajax_referer( 'smdg_generate_nonce', 'nonce' );
 
 		if ( ! current_user_can( 'publish_posts' ) ) {
 			wp_send_json_error( array( 'message' => esc_html__( 'Permission denied', 'sample-data-generator' ) ) );
@@ -328,7 +343,7 @@ class WC_DPG_Admin {
 
 		$post_count = min( max( $post_count, 1 ), 100 );
 
-		$generator = new WC_DPG_Post_Generator();
+		$generator = new SMDG_Post_Generator();
 		$result    = $generator->generate_posts(
 			$post_count,
 			$post_category,

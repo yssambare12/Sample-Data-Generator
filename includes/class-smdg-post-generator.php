@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class WC_DPG_Post_Generator {
+class SMDG_Post_Generator {
 
 	private $post_titles = array(
 		'Getting Started with WordPress',

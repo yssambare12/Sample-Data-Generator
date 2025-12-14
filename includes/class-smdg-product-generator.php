@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class WC_DPG_Generator {
+class SMDG_Product_Generator {
 
 	private $product_names = array(
 		'Wireless Headphones',

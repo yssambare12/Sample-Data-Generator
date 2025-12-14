@@ -1,9 +1,16 @@
-# WC Dummy Product Generator
+# Sample Data Generator
 
-A simple WordPress plugin to generate dummy WooCommerce products for testing and development purposes.
+A simple WordPress plugin to generate sample WordPress posts and WooCommerce products for testing and development purposes.
 
 ## Features
 
+### WordPress Posts (Always Available)
+- **Realistic Blog Posts**: Generate quality blog content
+- **Custom Categories**: Assign posts to specific categories or random ones
+- **Featured Images**: Optional placeholder images for posts
+- **Bulk Generation**: Create up to 100 posts at once
+
+### WooCommerce Products (Requires WooCommerce Plugin)
 - **Simple Products**: Generate basic WooCommerce products with customizable pricing
 - **Variable Products**: Create variable products with multiple attributes (color, size, etc.)
 - **Mixed Generation**: Generate a mix of simple and variable products
@@ -13,19 +20,36 @@ A simple WordPress plugin to generate dummy WooCommerce products for testing and
   - Assign to specific product categories
   - Set base price with automatic variance
   - Optional placeholder images
+
+### General Features
 - **User-Friendly Interface**: Simple admin settings page in WordPress dashboard
-- **AJAX Generation**: Non-blocking product generation with progress tracking
+- **AJAX Generation**: Non-blocking generation with progress tracking
+- **No WooCommerce Required**: Post generation works independently
 
 ## Installation
 
-1. Download and extract the plugin to `/wp-content/plugins/wc-dummy-product-generator/`
-2. Ensure WooCommerce is installed and activated
-3. Go to **Plugins** in the WordPress admin
-4. Find "WC Dummy Product Generator" and click **Activate**
+1. Download and extract the plugin to `/wp-content/plugins/sample-data-generator/`
+2. Go to **Plugins** in the WordPress admin
+3. Find "Sample Data Generator" and click **Activate**
+4. (Optional) Install and activate WooCommerce if you want to generate products
 
 ## Usage
 
-1. Navigate to **Dummy Products** in the WordPress admin menu
+1. Navigate to **Sample Data** in the WordPress admin menu
+2. Choose between **Generate Posts** or **Generate Products** tabs (Products tab only shows if WooCommerce is active)
+
+### Generating Posts
+1. Select the **Generate Posts** tab
+2. Fill in the form fields:
+   - **Number of Posts**: How many posts to create (1-100)
+   - **Category**: Select a category or leave blank for random category
+   - **Add Featured Images**: Check to add placeholder images
+3. Click **Generate Posts**
+4. Monitor the progress bar
+5. Once complete, view the links to your newly created posts
+
+### Generating Products (Requires WooCommerce)
+1. Select the **Generate Products** tab
 2. Fill in the form fields:
    - **Number of Products**: How many products to create (1-100)
    - **Product Type**:
@@ -34,7 +58,7 @@ A simple WordPress plugin to generate dummy WooCommerce products for testing and
      - Mixed - 50/50 split of simple and variable
    - **Category**: Select a category or leave blank for random category
    - **Base Price**: The starting price (products will have ±30% variance)
-   - **Add Random Product Images*: Check to add placeholder images
+   - **Add Random Product Images**: Check to add placeholder images
 3. Click **Generate Products**
 4. Monitor the progress bar
 5. Once complete, view the links to your newly created products
@@ -55,10 +79,12 @@ A simple WordPress plugin to generate dummy WooCommerce products for testing and
 - Each variation has unique stock and pricing
 - All variations are published and available
 
-## WooCommerce Requirements
+## Requirements
 
-- WooCommerce plugin must be installed and activated
-- Product categories should exist (or create one first)
+- **WordPress**: 5.0 or higher
+- **PHP**: 7.4 or higher
+- **WooCommerce** (Optional): Only required if you want to generate products
+  - Product categories should exist (or create one first)
 
 ## Notes
 
@@ -71,9 +97,9 @@ A simple WordPress plugin to generate dummy WooCommerce products for testing and
 ## Support
 
 For issues or questions, check:
-1. WooCommerce is activated
-2. You have proper administrator permissions
-3. The plugin directory has write permissions
+1. You have proper permissions (Editor or Administrator)
+2. The plugin directory has write permissions
+3. If generating products: Ensure WooCommerce is installed and activated
 
 ## Changelog
 
