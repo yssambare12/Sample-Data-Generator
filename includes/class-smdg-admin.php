@@ -34,16 +34,20 @@ class SMDG_Admin {
 			return;
 		}
 
+		// Determine if minified files exist
+		$css_file = file_exists( SMDG_PLUGIN_DIR . 'admin/css/admin.min.css' ) ? 'admin.min.css' : 'admin.css';
+		$js_file  = file_exists( SMDG_PLUGIN_DIR . 'admin/js/admin.min.js' ) ? 'admin.min.js' : 'admin.js';
+
 		wp_enqueue_style(
 			'smdg-admin-style',
-			SMDG_PLUGIN_URL . 'admin/css/admin.css',
+			SMDG_PLUGIN_URL . 'admin/css/' . $css_file,
 			array(),
 			SMDG_VERSION
 		);
 
 		wp_enqueue_script(
 			'smdg-admin-script',
-			SMDG_PLUGIN_URL . 'admin/js/admin.js',
+			SMDG_PLUGIN_URL . 'admin/js/' . $js_file,
 			array( 'jquery' ),
 			SMDG_VERSION,
 			true
