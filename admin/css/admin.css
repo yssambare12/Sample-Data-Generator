@@ -248,6 +248,88 @@
 	line-height: 1.6;
 }
 
+.smdg-wc-notice {
+	display: flex;
+	gap: 20px;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	border-radius: 8px;
+	padding: 30px;
+	margin-bottom: 25px;
+	color: #fff;
+	box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.smdg-wc-notice-icon {
+	flex-shrink: 0;
+}
+
+.smdg-wc-notice-icon .dashicons {
+	font-size: 48px;
+	width: 48px;
+	height: 48px;
+	color: #fff;
+	opacity: 0.9;
+}
+
+.smdg-wc-notice-content {
+	flex: 1;
+}
+
+.smdg-wc-notice-content h3 {
+	margin: 0 0 10px 0;
+	font-size: 22px;
+	font-weight: 600;
+	color: #fff;
+}
+
+.smdg-wc-notice-content p {
+	margin: 0 0 20px 0;
+	font-size: 15px;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.95);
+}
+
+.smdg-wc-notice-actions {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.smdg-wc-notice-actions .button {
+	font-size: 14px;
+	padding: 10px 24px;
+	height: auto;
+	border: none;
+	border-radius: 5px;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	text-decoration: none;
+}
+
+.smdg-wc-notice-actions .button-primary {
+	background: #fff;
+	color: #667eea;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.smdg-wc-notice-actions .button-primary:hover {
+	background: #f8f9fa;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.smdg-wc-notice-actions .button-secondary {
+	background: rgba(255, 255, 255, 0.2);
+	color: #fff;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.smdg-wc-notice-actions .button-secondary:hover {
+	background: rgba(255, 255, 255, 0.3);
+	border-color: rgba(255, 255, 255, 0.5);
+	transform: translateY(-2px);
+}
+
 @media (max-width: 782px) {
 	.smdg-container {
 		grid-template-columns: 1fr;
@@ -264,5 +346,30 @@
 
 	.smdg-wrapper h1 {
 		font-size: 24px;
+	}
+
+	.smdg-wc-notice {
+		flex-direction: column;
+		padding: 20px;
+	}
+
+	.smdg-wc-notice-icon .dashicons {
+		font-size: 36px;
+		width: 36px;
+		height: 36px;
+	}
+
+	.smdg-wc-notice-content h3 {
+		font-size: 18px;
+	}
+
+	.smdg-wc-notice-actions {
+		flex-direction: column;
+	}
+
+	.smdg-wc-notice-actions .button {
+		width: 100%;
+		text-align: center;
+		justify-content: center;
 	}
 }

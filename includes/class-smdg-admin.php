@@ -61,31 +61,70 @@ class SMDG_Admin {
 
 	public function render_settings_page() {
 		$is_wc_active = $this->is_woocommerce_active();
-		$default_tab_products = $is_wc_active ? 'active' : '';
-		$default_tab_posts = $is_wc_active ? '' : 'active';
 		?>
 		<div class="wrap smdg-wrapper">
 			<h1><?php esc_html_e( 'Sample Data Generator', 'sample-data-generator' ); ?></h1>
 
 			<div class="smdg-tabs">
-				<?php if ( $is_wc_active ) : ?>
-				<button class="tab-button <?php echo esc_attr( $default_tab_products ); ?>" data-tab="products">
+				<button class="tab-button active" data-tab="products">
 					<?php esc_html_e( 'Generate Products', 'sample-data-generator' ); ?>
 				</button>
-				<?php endif; ?>
-				<button class="tab-button <?php echo esc_attr( $default_tab_posts ); ?>" data-tab="posts">
+				<button class="tab-button" data-tab="posts">
 					<?php esc_html_e( 'Generate Posts', 'sample-data-generator' ); ?>
 				</button>
 			</div>
 
 			<div class="smdg-content">
-				<?php if ( $is_wc_active ) : ?>
-				<div id="products-tab" class="tab-content <?php echo esc_attr( $default_tab_products ); ?>">
+				<div id="products-tab" class="tab-content active">
 					<div class="smdg-container">
 						<div class="smdg-form-card">
 							<h2><?php esc_html_e( 'WooCommerce Products', 'sample-data-generator' ); ?></h2>
 
-							<form id="smdg-products-form" class="smdg-form">
+							<?php if ( ! $is_wc_active ) : ?>
+								<div class="smdg-wc-notice">
+									<div class="smdg-wc-notice-icon">
+										<span class="dashicons dashicons-info"></span>
+									</div>
+									<div class="smdg-wc-notice-content">
+										<h3><?php esc_html_e( 'WooCommerce Required', 'sample-data-generator' ); ?></h3>
+										<p><?php esc_html_e( 'To generate WooCommerce products, you need to install and activate the WooCommerce plugin.', 'sample-data-generator' ); ?></p>
+										<div class="smdg-wc-notice-actions">
+											<?php
+											$plugin_slug = 'woocommerce';
+											$plugin_file = 'woocommerce/woocommerce.php';
+
+											// Check if WooCommerce is installed but not active
+											if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) ) {
+												$activate_url = wp_nonce_url(
+													admin_url( 'plugins.php?action=activate&plugin=' . $plugin_file ),
+													'activate-plugin_' . $plugin_file
+												);
+												?>
+												<a href="<?php echo esc_url( $activate_url ); ?>" class="button button-primary button-large">
+													<?php esc_html_e( 'Activate WooCommerce', 'sample-data-generator' ); ?>
+												</a>
+												<?php
+											} else {
+												$install_url = wp_nonce_url(
+													admin_url( 'update.php?action=install-plugin&plugin=' . $plugin_slug ),
+													'install-plugin_' . $plugin_slug
+												);
+												?>
+												<a href="<?php echo esc_url( $install_url ); ?>" class="button button-primary button-large">
+													<?php esc_html_e( 'Install WooCommerce', 'sample-data-generator' ); ?>
+												</a>
+												<?php
+											}
+											?>
+											<a href="https://wordpress.org/plugins/woocommerce/" target="_blank" class="button button-secondary button-large">
+												<?php esc_html_e( 'Learn More', 'sample-data-generator' ); ?>
+											</a>
+										</div>
+									</div>
+								</div>
+							<?php endif; ?>
+
+							<form id="smdg-products-form" class="smdg-form" <?php echo ! $is_wc_active ? 'style="opacity: 0.5; pointer-events: none;"' : ''; ?>>
 								<div class="form-group">
 									<label for="product-count">
 										<?php esc_html_e( 'Number of Products', 'sample-data-generator' ); ?>
@@ -181,9 +220,8 @@ class SMDG_Admin {
 						</div>
 					</div>
 				</div>
-				<?php endif; ?>
 
-				<div id="posts-tab" class="tab-content <?php echo esc_attr( $default_tab_posts ); ?>" style="<?php echo $is_wc_active ? 'display: none;' : ''; ?>">
+				<div id="posts-tab" class="tab-content" style="display: none;">
 					<div class="smdg-container">
 						<div class="smdg-form-card">
 							<h2><?php esc_html_e( 'WordPress Posts', 'sample-data-generator' ); ?></h2>
