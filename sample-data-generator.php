@@ -38,13 +38,13 @@ function sample_data_generator_init() {
 add_action( 'plugins_loaded', 'sample_data_generator_init' );
 
 function sample_data_generator_activate() {
-	// Activation logic
+	flush_rewrite_rules();
 }
 
 register_activation_hook( SMDG_PLUGIN_FILE, 'sample_data_generator_activate' );
 
 function sample_data_generator_deactivate() {
-	// Deactivation logic
+	flush_rewrite_rules();
 }
 
 register_deactivation_hook( SMDG_PLUGIN_FILE, 'sample_data_generator_deactivate' );

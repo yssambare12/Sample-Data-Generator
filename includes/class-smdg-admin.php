@@ -34,7 +34,6 @@ class SMDG_Admin {
 			return;
 		}
 
-		// Determine if minified files exist
 		$css_file = file_exists( SMDG_PLUGIN_DIR . 'admin/css/admin.min.css' ) ? 'admin.min.css' : 'admin.css';
 		$js_file  = file_exists( SMDG_PLUGIN_DIR . 'admin/js/admin.min.js' ) ? 'admin.min.js' : 'admin.js';
 
