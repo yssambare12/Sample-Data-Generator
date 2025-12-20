@@ -6,7 +6,7 @@
 - WordPress installed and running
 - WooCommerce plugin installed and activated
 - PHP 7.4 or higher
-- Write permissions on `/wp-content/plugins/` directory
+- Write permissions on `/wp-content/plugins/` directory.
 
 ### 2. Activate the Plugin
 1. Log in to WordPress admin panel
@@ -108,3 +108,4 @@ If you encounter any issues:
 ## Uninstall
 
 Simply deactivate and delete the plugin. Generated products will remain in your WordPress database.
+
