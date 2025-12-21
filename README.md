@@ -8,7 +8,7 @@ A simple WordPress plugin to generate sample WordPress posts and WooCommerce pro
 - **Realistic Blog Posts**: Generate quality blog content
 - **Custom Categories**: Assign posts to specific categories or random ones
 - **Featured Images**: Optional placeholder images for posts
-- **Bulk Generation**: Create up to 100 posts at once
+- **Bulk Generation**: Create up to 100 posts at once.
 
 ### WooCommerce Products (Requires WooCommerce Plugin)
 - **Simple Products**: Generate basic WooCommerce products with customizable pricing
@@ -113,4 +113,5 @@ For issues or questions, check:
 ## License
 
 GPL v2 or later
+
 
