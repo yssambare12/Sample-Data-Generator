@@ -24,7 +24,7 @@ A simple WordPress plugin to generate sample WordPress posts and WooCommerce pro
 ### General Features
 - **User-Friendly Interface**: Simple admin settings page in WordPress dashboard
 - **AJAX Generation**: Non-blocking generation with progress tracking
-- **No WooCommerce Required**: Post generation works independently
+- **No WooCommerce Required**: Post generation works independently.
 
 ## Installation
 
@@ -113,6 +113,7 @@ For issues or questions, check:
 ## License
 
 GPL v2 or later
+
 
 
 
