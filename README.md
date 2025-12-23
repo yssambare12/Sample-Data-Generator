@@ -31,7 +31,7 @@ A simple WordPress plugin to generate sample WordPress posts and WooCommerce pro
 1. Download and extract the plugin to `/wp-content/plugins/sample-data-generator/`
 2. Go to **Plugins** in the WordPress admin
 3. Find "Sample Data Generator" and click **Activate**
-4. (Optional) Install and activate WooCommerce if you want to generate products
+4. (Optional) Install and activate WooCommerce if you want to generate products.
 
 ## Usage
 
@@ -113,5 +113,6 @@ For issues or questions, check:
 ## License
 
 GPL v2 or later
+
 
 
